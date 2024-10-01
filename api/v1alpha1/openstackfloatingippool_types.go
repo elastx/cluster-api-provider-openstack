@@ -20,6 +20,7 @@ import (
 	"fmt"
 
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
+
 	clusterv1 "sigs.k8s.io/cluster-api/api/v1beta1"
 
 	infrav1 "sigs.k8s.io/cluster-api-provider-openstack/api/v1beta1"
@@ -56,6 +57,11 @@ type OpenStackFloatingIPPoolSpec struct {
 	// If set, the pool will stop allocating floating ips when it reaches this number of ClaimedIPs.
 	// +optional
 	MaxIPs *int `json:"maxIPs,omitempty"`
+
+	// MinIPs is the minimum number of floating ips that should be available in the pool, if nil there is no limit.
+	// If set, the pool will start allocating floating ips and will stop when it reaches this number of ClaimedIPs.
+	// +optional
+	MinIPs *int `json:"minIPs,omitempty"`
 
 	// IdentityRef is a reference to a identity to be used when reconciling this pool.
 	// +kubebuilder:validation:Required

@@ -25,6 +25,9 @@ const (
 	// MaxIPsReachedReason is set when the maximum number of floating IPs has been reached.
 	MaxIPsReachedReason = "MaxIPsReached"
 
+	// MinIPsNotReachedReason is set when the minimum number of floating IPs has not been reached.
+	MinIPsNotReachedReason = "MinIPsNotReached"
+
 	// UnableToFindFloatingIPNetworkReason is used when the floating ip network is not found.
 	UnableToFindNetwork = "UnableToFindNetwork"
 
